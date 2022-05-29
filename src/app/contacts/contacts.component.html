@@ -1,0 +1,14 @@
+<div>
+<li *ngFor="let contact of contacts">
+    <ul (click)="getContactDetail(contact.Id)" style="cursor:pointer">
+        <h3>{{contact.FirstName + " " + contact.LastName}}</h3>
+        <h4>{{contact.Designation}}</h4>
+    </ul>
+</li>
+
+<div *ngIf="contactDetail">
+    <h3> {{ contactDetail.FirstName + " " + contactDetail.LastName}}</h3>
+    <h4> {{ contactDetail.Designation}}</h4>
+    <b><a [routerLink]="['/contacts/', contactDetail.Id, 'email-addresses']" style="cursor:pointer">{{ contactDetail.Email}}</a></b>
+</div>
+</div>
